@@ -1,0 +1,52 @@
+.main-product-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 100px;
+}
+
+.searchbar{
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.product-img{
+  height: 300px;
+  width: 300px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 20px 0px;
+}
+
+.product-container{
+  height: 500px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  margin: 20px;
+}
+
+.input-field{
+  height: 30px;
+  width: 200px;
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
+.select-field{
+  height: 30px;
+  width: 175px;
+  font-size: 16px;
+  margin-left: 10px;
+  margin-right: 5px;
+}

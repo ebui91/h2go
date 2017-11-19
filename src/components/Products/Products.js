@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Navbar from '../Navbar/Navbar';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { searchProducts, submitSearch } from '../../redux/reducer';
+// import { connect } from 'react-redux';
+// import { searchProducts, submitSearch } from '../../redux/reducer';
 import Card from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import './Products.css';
@@ -14,9 +14,9 @@ class Products extends Component{
 
     this.state= {
       productsList: [],
-      sortVal: ''
+      sortVal: '',
+      searchVal: ''
     }
-
     this.handleSort= this.handleSort.bind(this);
     this.submitSort= this.submitSort.bind(this);
   }
@@ -28,7 +28,7 @@ class Products extends Component{
   }
 
   handleSort(val){
-    this.setState({ sortVal: val })
+    this.setState({ sortVal: val });
   }
 
   submitSort(){
@@ -37,19 +37,17 @@ class Products extends Component{
     })
   }
 
-
-
-
+  //Search methods are currently in the Redux reducer
   render(){
     const products= this.state.productsList.map(function(product, index){
       return(
         <Link to={`/details/${product.id}`} key={index}>
-        <Card className='product-container'>
-            <p>{product.name}</p>
-            <p>${product.price}</p>
-            <div className='product-img' style={{backgroundImage:`url(${product.img_url})`}} alt='product'></div>
-            <RaisedButton label=" Product Details" />
-        </Card>
+          <Card className='product-container'>
+              <p>{product.name}</p>
+              <p>${product.price}</p>
+              <div className='product-img' style={{backgroundImage:`url(${product.img_url})`}} alt='product'></div>
+              <RaisedButton label=" Product Details" />
+          </Card>
         </Link>
       )
     })
@@ -61,7 +59,7 @@ class Products extends Component{
         <div className='searchbar'>
           <div className='search'>
             Search:
-            <input className='input-field' type='text' placeholder='...' onChange={ e=> this.props.searchProducts(e.target.value) }></input>
+            <input className='input-field' type='text' placeholder='...' onChange={ e=> console.log(e.target.value) }></input>
             <RaisedButton label="SEARCH" onClick={this.props.submitSearch}/>
           </div>
 
@@ -84,11 +82,13 @@ class Products extends Component{
   }
 }
 
-function mapStateToProps(state){
-  const { searchVal }= state;
-  return{
-    searchVal
-  };
-}
+// function mapStateToProps(state){
+//   const { searchVal }= state;
+//   return{
+//     searchVal
+//   };
+// }
+//
+// export default connect(mapStateToProps, { searchProducts, submitSearch })(Products);
 
-export default connect(mapStateToProps, { searchProducts, submitSearch })(Products);
+export default Products;

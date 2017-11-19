@@ -6,15 +6,14 @@ const initialState= {
   logged: 'Login',
   searchVal: '',
   products: [],
-  cart: []
 }
 
 
 //ACTION TYPES
 const REQ_USER= 'REQ_USER';
 const GET_PRODUCTS= 'GET_PRODUCTS';
-const SEARCH_PRODUCTS= 'SEARCH_PRODUCTS';
-const SUBMIT_SEARCH= 'SUBMIT_SEARCH';
+// const SEARCH_PRODUCTS= 'SEARCH_PRODUCTS';
+// const SUBMIT_SEARCH= 'SUBMIT_SEARCH';
 
 //REDUCER
 export default function reducer(state= initialState, action){
@@ -30,10 +29,10 @@ export default function reducer(state= initialState, action){
       });
     case GET_PRODUCTS:
       return Object.assign({}, state, { products: action.payload });
-    case SEARCH_PRODUCTS:
-      return Object.assign({}, state, { searchVal: action.payload });
-    case SUBMIT_SEARCH:
-      return Object.assign({}, state, { products: action.payload });
+    // case SEARCH_PRODUCTS:
+    //   return Object.assign({}, state, { searchVal: action.payload });
+    // case SUBMIT_SEARCH:
+    //   return Object.assign({}, state, { products: action.payload });
     default:
       return state;
   }
@@ -59,19 +58,20 @@ export function getProducts(){
   };
 }
 
-export function searchProducts(userInput){
-  return{
-    type: SEARCH_PRODUCTS,
-    payload: userInput
-  };
-}
-
-export function submitSearch(){
-  return{
-    type: SUBMIT_SEARCH,
-    payload: axios.get('/products/search').then(response => {
-      console.log('reducer: ', response.data);
-      return response.data
-    })
-  };
-}
+// export function searchProducts(userInput){
+//   return{
+//     type: SEARCH_PRODUCTS,
+//     payload: userInput
+//   };
+// }
+//
+// export function submitSearch(){
+//   return{
+//     type: SUBMIT_SEARCH,
+//     payload: axios.get('/products/:search').then(response => {
+      // console.log('reducer: ', response.data);
+      // console.log('reducer: ', this.initialState.searchVal);
+//       return response.data
+//     })
+//   };
+// }

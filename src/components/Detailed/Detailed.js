@@ -10,51 +10,53 @@ class Detailed extends Component{
     super(props);
 
     this.state={
-      product: []
+      product: [],
     }
+    this.removeCart= this.removeCart.bind(this);
   }
 
-  componentWillMount(){
+  componentDidMount(){
     axios.get(`/api/details/${this.props.match.params.id}`).then(response=> {
       this.setState({ product: response.data })
     });
   }
 
-addCart(product){
-  var user = this.props.user
-  console.log(product);
-  if(product && user){
-    console.log(user);
-    axios.post('/cart', { user: user, product_name: product.name, product_price: product.price })
-    .then(console.log('posted!'));
+  addCart(product){
+    var user= this.props.user;
+    if(product && user){
+      axios.post('/cart', { user: user, product_name: product.name, product_price: product.price });
+    }
   }
-}
 
-
-render(){
-    var product= this.state.product[0];
-    return(
-      <div className='detailed-main-container'>
-        <h1>{product && product.name} ({product && product.bottle_size})</h1>
-
-        <div className='detailed-info'>
-          <h1>${product && product.price}</h1>
-        </div>
-
-        <img className='detailed-pic' src= {product && product.img_url} alt='product-pic'/>
-        <h3>pH: {product && product.ph}</h3>
-        <p className='detailed-desc'>{product && product.description}</p>
-
-        <div className='detailed-btns'>
-          <Link to='/products'>
-          <RaisedButton className='btn' label="Back" />
-          </Link>
-          <RaisedButton className='btn' label="Add to Cart" onClick={this.addCart(product)} />
-        </div>
-      </div>
-    )
+  removeCart(product){
+    //axios.delete maybe... but the problem is we need to be able to identify individual products
+    //I THINK that once an item is removed, Cart will re-render and the new total will be displayed.
   }
-}
+
+  render(){
+      var product= this.state.product[0];
+      return(
+        <div className='detailed-main-container'>
+          <h1>{product && product.name} ({product && product.bottle_size})</h1>
+
+          <div className='detailed-info'>
+            <h1>${product && product.price}</h1>
+          </div>
+
+          <img className='detailed-pic' src= {product && product.img_url} alt='product-pic'/>
+          <h3>pH: {product && product.ph}</h3>
+          <p className='detailed-desc'>{product && product.description}</p>
+
+          <div className='detailed-btns'>
+            <Link to='/products'>
+            <RaisedButton className='btn' label="Back" />
+            </Link>
+            <RaisedButton className='btn' label="Add to Cart" onClick={()=> { this.addCart(product); alert('Item added to cart!') }} />
+          </div>
+        </div>
+      )
+    }
+  }
 
 function mapStateToProps(state){
   const { logged, user }= state;

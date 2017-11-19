@@ -47,7 +47,7 @@ class Navbar extends Component{
         </div>
 
         <div className='nav-bottom'>
-          <Link to='/Cart'>
+          <Link to='/cart'>
             <img className='shopping-cart' src={require('../../images/shopping-cart.png')} alt='shopping-cart'/>
           </Link>
           <RaisedButton label={this.props.logged} onClick={this.handleLogin} />

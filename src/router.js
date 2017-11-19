@@ -8,7 +8,6 @@ import Products from './components/Products/Products';
 import Detailed from './components/Detailed/Detailed';
 import About from './components/About/About';
 import Contact from './components/Contact/Contact';
-import PureDrawer from './components/PureDrawer';
 
 export default(
   <BrowserRouter>
@@ -19,7 +18,6 @@ export default(
       <Route component= { Detailed } path='/details/:id' />
       <Route component= { About } path='/about' />
       <Route component= { Contact } path='/contact' />
-      <Route component= { PureDrawer } path='/pure' />
     </div>
   </BrowserRouter>
 )

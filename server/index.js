@@ -81,9 +81,11 @@ app.get('/products/name', controller.getProducts);
 app.get('/products/price', controller.getProductsByPrice);
 app.get('/products/price-desc', controller.getProductsByPriceDesc);
 app.get('/products/pH', controller.getProductsByPh);
-app.get('/products/search', controller.getProductsBySearch);
+app.get('/products/:search', controller.getProductsBySearch);
 app.get('/users', controller.getUsers);
 app.get('/api/details/:id', controller.getProductById);
+app.get('/cart/:id', controller.getUserCart);
+app.get('/cart/total/:id', controller.getCartTotal);
 app.post('/cart', controller.addToCart);
 
 app.get('/me', function(req, res) {

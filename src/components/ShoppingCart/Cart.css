@@ -1,3 +1,29 @@
 .cart-main-container{
   margin-top: 80px;
 }
+
+.cart-list{
+  height: 100px;
+  width: 30vw;
+  margin: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-list h3{
+  display: inline-block;
+}
+
+.cart-pic{
+  height: 40px;
+  width: 40px;
+}
+
+.remove-icon{
+  height: 30px;
+  width: 30px;
+  margin: 0;
+  padding: 0;
+}

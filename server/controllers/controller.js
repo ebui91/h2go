@@ -43,13 +43,25 @@ module.exports= {
   },
   getProductsBySearch: (req, res, next)=> {
     const dbInstance= req.app.get('db');
-    dbInstance.get_products_by_search([req.params.searchVal])
+    dbInstance.get_products_by_search([req.params.search])
       .then(products=> res.status(200).json(products))
+      .catch( ()=> res.status(500).json());
+  },
+  getUserCart: (req, res, next)=> {
+    const dbInstance= req.app.get('db');
+    dbInstance.get_user_cart([req.params.id])
+      .then(cart=> res.status(200).json(cart))
+      .catch( ()=> res.status(500).json());
+  },
+  getCartTotal: (req, res, next)=> {
+    const dbInstance= req.app.get('db');
+    dbInstance.get_cart_total([req.params.id])
+      .then(total=> res.status(200).json(total))
       .catch( ()=> res.status(500).json());
   },
   addToCart: (req, res, next)=> {
     const dbInstance= req.app.get('db');
-    const {user, product_name, product_price} = req.body;
+    const {user, product_name, product_price}= req.body;
     dbInstance.add_to_cart([user.id, product_name, product_price])
     .then(cart=> res.status(200).json(cart))
     .catch( ()=> res.status(500).json());

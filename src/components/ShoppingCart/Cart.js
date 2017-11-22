@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Navbar from '../Navbar/Navbar';
 import { connect } from 'react-redux';
 import Card from 'material-ui/Card';
+// import Checkout from '../Checkout/Checkout';
 import axios from 'axios';
 import './Cart.css';
 
@@ -11,10 +12,18 @@ class Cart extends Component{
 
     this.state= {
       cartList: [],
-      total: 0
+      total: 0,
+      selectedItem: 0
     }
-
+    // this.removeItem= this.removeItem.bind(this);
   }
+  
+  // removeItem(){
+    // axios.delete(`/cart/${this.state.cartList[this.state.selectedItem]}`).then(response=> {
+    //   this.setState({ cartList: response.date });
+    // })
+  //   alert('Item removed from cart!');
+  // }
 
   componentWillMount(){
     axios.get(`/cart/${this.props.user.id}`).then(response=> {
@@ -22,19 +31,19 @@ class Cart extends Component{
     });
     axios.get(`/cart/total/${this.props.user.id}`).then(response=> {
       this.setState({ total: response.data[0].sum });
-      // console.log('response: ', response.data);
     })
-    console.log(this.state.total);
   }
 
   render(){
-    // console.log('render: ', this.state.cartList);
     const cart= this.state.cartList.map(function(item, index){
       return(
         <Card className='cart-list' key={index}>
           <div className='cart-list-line'>
             <h3>{item.product_name}</h3>
-            <img className='remove-icon' src={require('../../images/cancel.png')} alt='X' />
+            <img className='remove-icon' src={require('../../images/cancel.png')} alt='X' onClick={ ()=> {
+              axios.delete(`/cart/${item.id}`)
+
+            }}/>
           </div>
           <div className='cart-list-line'><p>${item.product_price}</p></div>
         </Card>

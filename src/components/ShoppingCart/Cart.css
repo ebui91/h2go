@@ -3,17 +3,20 @@
 }
 
 .cart-list{
-  height: 100px;
-  width: 30vw;
+  height: 150px;
+  width: 40vw;
   margin: 25px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .cart-list h3{
   display: inline-block;
+}
+
+.cart-list-line{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .cart-pic{

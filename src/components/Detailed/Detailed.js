@@ -19,6 +19,7 @@ class Detailed extends Component{
     axios.get(`/api/details/${this.props.match.params.id}`).then(response=> {
       this.setState({ product: response.data })
     });
+    console.log('Detailed: ', this.props.user);
   }
 
   addCart(product){

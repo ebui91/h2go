@@ -8,6 +8,7 @@ import Products from './components/Products/Products';
 import Detailed from './components/Detailed/Detailed';
 import About from './components/About/About';
 import Contact from './components/Contact/Contact';
+// import Checkout from './components/Checkout/Checkout';
 
 export default(
   <BrowserRouter>

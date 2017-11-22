@@ -8,6 +8,8 @@ const Auth0Strategy= require('passport-auth0');
 const connectionString= require('../config.js').massive;
 const { secret }= require('../config.js').session;
 const { domain, clientID, clientSecret }= require("../config").auth0;
+
+
 const controller= require('./controllers/controller');
 const cart_controller= require('./controllers/cart_controller');
 
@@ -33,6 +35,8 @@ app.use(session({
   })
 );
 
+
+//Auth0
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -85,6 +89,7 @@ app.get('/products/:search', controller.getProductsBySearch);
 app.get('/users', controller.getUsers);
 app.get('/api/details/:id', controller.getProductById);
 app.get('/cart/:id', controller.getUserCart);
+app.delete('/cart/:id', controller.removeFromCart);
 app.get('/cart/total/:id', controller.getCartTotal);
 app.post('/cart', controller.addToCart);
 

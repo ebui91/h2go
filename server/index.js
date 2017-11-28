@@ -9,12 +9,20 @@ const connectionString= require('../config.js').massive;
 const { secret }= require('../config.js').session;
 const { domain, clientID, clientSecret }= require("../config").auth0;
 
+//Stripe
+const SERVER_CONFIGS = require('./constants/server');
+
+const configureServer = require('./server');
+const configureRoutes = require('./routes');
+
 
 const controller= require('./controllers/controller');
-const cart_controller= require('./controllers/cart_controller');
 
 const port= 3001;
 const app= express();
+
+configureServer(app);
+configureRoutes(app);
 
 //Serve public files to server whenever we are done building.
 // app.use(express.static(`${__dirname}/build`));
@@ -93,11 +101,14 @@ app.delete('/cart/:id', controller.removeFromCart);
 app.get('/cart/total/:id', controller.getCartTotal);
 app.post('/cart', controller.addToCart);
 
+//Stripe Endpoints
+// app.get('/payments',);
+// app.post('/payments',);
+
 app.get('/me', function(req, res) {
   if (!req.user) {return res.status(404)};
   res.status(200).json(req.user);
 });
-
 
 
 app.listen(port, ()=> {

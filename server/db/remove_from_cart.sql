@@ -1,2 +1,3 @@
-DELETE FROM cart 
+DELETE FROM cart
 WHERE id= $1;
+SELECT * FROM cart;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { reqUser } from '../../redux/reducer';
 // import RaisedButton from 'material-ui/RaisedButton';
@@ -24,7 +24,11 @@ class Sidebar extends Component{
 
   render(){
     return(
-        <div></div>
+        <div className='sidebar-main'>
+          <Link to='/'>
+            <h3>Home</h3>
+          </Link>
+        </div>
     )
   }
 }

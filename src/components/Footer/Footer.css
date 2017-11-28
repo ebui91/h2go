@@ -1,0 +1,74 @@
+.footer-main-container{
+  min-height: 250px;
+  /*bottom: 0;
+  position: absolute;*/
+  width: 100vw;
+  background: #111;
+  opacity: 0.9;
+  font-family: Arial;
+}
+
+.columns{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-bottom: 25px;
+}
+
+.footer-column{
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.footer-column h2{
+  color: #FFF;
+  margin-bottom: 5px;
+}
+
+.footer-column ul{
+  margin: auto;
+  padding: 0;
+}
+
+.footer-column li{
+  text-align: center;
+  list-style: none;
+  line-height: 2em;
+  color: #838383;
+}
+
+.social-media{
+  text-align: center;
+  color: #FFF;
+  width: 40%;
+  margin: auto;
+}
+
+.company-info{
+  text-align: center;
+}
+
+.company-info p{
+  color: #838383;
+  margin-bottom: 0;
+}
+
+.social-media ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
+
+.social-media-links .fa{
+  color: #FFF;
+}
+
+.social-media-links .fa:hover{
+  color: #1c97e6;
+  transition: all 0.6s;
+}

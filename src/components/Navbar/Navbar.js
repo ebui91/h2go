@@ -24,7 +24,7 @@ class Navbar extends Component{
 
   render(){
     return(
-      <div className='nav-main transparent'>
+      <div className='nav-main'>
         <div className='nav-top'>
           <Link to='/'>
             <img className='nav-logo' src={require('../../images/logo.png')} alt='h2go-logo' />
@@ -33,16 +33,16 @@ class Navbar extends Component{
         </div>
 
         <div className='nav-mid'>
-          <Link to='/products'>
-            <h3>Products</h3>
-          </Link>
-
           <Link to='/about'>
             <h3>About</h3>
           </Link>
 
           <Link to='/contact'>
             <h3>Contact</h3>
+          </Link>
+
+          <Link to='/products'>
+            <h3>Products</h3>
           </Link>
         </div>
 

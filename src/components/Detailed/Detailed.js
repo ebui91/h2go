@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
+import Navbar from '../Navbar/Navbar';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Dialog from 'material-ui/Dialog';
 import axios from 'axios';
 import './Detailed.css';
 
@@ -11,6 +13,7 @@ class Detailed extends Component{
 
     this.state={
       product: [],
+      open: false
     }
     this.removeCart= this.removeCart.bind(this);
   }
@@ -38,10 +41,11 @@ class Detailed extends Component{
       var product= this.state.product[0];
       return(
         <div className='detailed-main-container'>
+          <Navbar />
           <h1>{product && product.name} ({product && product.bottle_size})</h1>
 
           <div className='detailed-info'>
-            <h1>${product && product.price}</h1>
+            <h2>${product && product.price}</h2>
           </div>
 
           <img className='detailed-pic' src= {product && product.img_url} alt='product-pic'/>

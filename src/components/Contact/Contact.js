@@ -8,7 +8,7 @@ class Contact extends Component{
       <div className='contact-main-container'>
         <Navbar />
         <h1>Contact Page</h1>
-        <p>Fucking contact me if you want to buy some fucking water.</p>
+        
       </div>
     )
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Navbar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
 import { Link } from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import { searchProducts, submitSearch } from '../../redux/reducer';
@@ -14,14 +15,37 @@ class Products extends Component{
 
     this.state= {
       productsList: [],
+      filteredProducts: [],
       sortVal: '',
-      searchVal: ''
+      searchVal: '',
     }
     this.handleSort= this.handleSort.bind(this);
     this.submitSort= this.submitSort.bind(this);
+    this.handleSearch= this.handleSearch.bind(this);
+    this.submitSearch= this.submitSearch.bind(this);
+    this.clearSearch= this.clearSearch.bind(this);
   }
 
   componentWillMount(){
+    axios.get('/products').then(response=>{
+      this.setState({ productsList: response.data });
+    })
+  }
+
+  //shouldComponentUpdate(){}
+
+  handleSearch(val){
+    this.setState({ searchVal: val });
+    this.setState({ filteredProducts: this.state.productsList.filter(product=> {
+      return product.name.indexOf(this.state.searchVal) !== -1 })
+    });
+  }
+
+  submitSearch(){
+    this.setState({ productsList: this.state.filteredProducts });
+  }
+
+  clearSearch(){
     axios.get('/products').then(response=>{
       this.setState({ productsList: response.data });
     })
@@ -39,18 +63,19 @@ class Products extends Component{
 
   //Search methods are currently in the Redux reducer
   render(){
-    const products= this.state.productsList.map(function(product, index){
+    var products= this.state.productsList.map(function(product, index){
       return(
         <Link to={`/details/${product.id}`} key={index}>
           <Card className='product-container'>
               <p>{product.name}</p>
               <p>${product.price}</p>
               <div className='product-img' style={{backgroundImage:`url(${product.img_url})`}} alt='product'></div>
-              <RaisedButton label=" Product Details" />
+              <RaisedButton className='btn' label=" Product Details" />
           </Card>
         </Link>
       )
-    })
+    });
+
     return(
       <div className='main-product-container'>
         <Navbar />
@@ -58,17 +83,20 @@ class Products extends Component{
 
         <div className='searchbar'>
           <div className='search'>
+            <img className='search-icon' src= { require('../../images/search-icon.png') } alt='search-icon' />
             Search:
-            <input className='input-field' type='text' placeholder='...' onChange={ e=> console.log(e.target.value) }></input>
-            <RaisedButton label="SEARCH" onClick={this.props.submitSearch}/>
+            <input className='input-field' type='text' placeholder='' onChange={ e=> this.handleSearch(e.target.value) }></input>
+            <RaisedButton className='search-btn' label="SEARCH" onClick={this.submitSearch}/>
+            <RaisedButton className='search-btn' label="CLEAR" onClick={this.clearSearch}/>
           </div>
 
           <div className='sort-by'>
             Sort By:
             <select className='select-field' onChange={ e=> this.handleSort(e.target.value) }>
+              <option value='' disabled selected>Select...</option>
               <option value='name'> Name </option>
-              <option value='price'> Price (ascending)</option>
-              <option value='price-desc'> Price (descending)</option>
+              <option value='price'> Price (low-to-high)</option>
+              <option value='price-desc'> Price (high-to-low)</option>
               <option value='pH'> pH </option>
             </select>
 
@@ -76,7 +104,11 @@ class Products extends Component{
           </div>
         </div>
 
-        { products }
+          <div className='products-list'>
+            { products }
+          </div>
+
+        <Footer />
       </div>
     )
   }

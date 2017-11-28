@@ -63,6 +63,7 @@
 
 .section-dark{
   background-color:#111;
+  opacity: 0.9;
   color:#fff;
 }
 

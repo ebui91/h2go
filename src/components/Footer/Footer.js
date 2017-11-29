@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 class Footer extends Component{
@@ -16,14 +17,16 @@ class Footer extends Component{
             </ul>
           </div>
 
-          <div className='footer-column'>
-            <h2>Support</h2>
-            <ul>
-              <li>Contact</li>
-              <li>Returns</li>
-              <li>Customer Service</li>
-            </ul>
-          </div>
+          <Link to='/contact'>
+            <div className='footer-column'>
+              <h2>Support</h2>
+              <ul>
+                <li>Contact</li>
+                <li>Returns</li>
+                <li>Customer Service</li>
+              </ul>
+            </div>
+          </Link>
 
           <div className='footer-column'>
             <h2>Legal</h2>
@@ -55,7 +58,7 @@ class Footer extends Component{
         </div>
 
         <div className='company-info'>
-          <p>	&copy; 2017 H2GO.life  |  All Rights Reserved </p>
+          <p>	&copy; 2017 H2GO.life  ||  All Rights Reserved </p>
           <p> Site By: Eric Bui </p>
         </div>
       </div>

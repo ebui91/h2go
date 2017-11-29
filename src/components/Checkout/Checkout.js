@@ -1,20 +1,31 @@
 import React from 'react'
 import axios from 'axios';
 import StripeCheckout from 'react-stripe-checkout';
+import swal from 'sweetalert2';
 
 import STRIPE_PUBLISHABLE from '../../constants/stripe';
 import PAYMENT_SERVER_URL from '../../constants/server';
 
 const CURRENCY = 'USD';
 
-const fromEuroToCent = amount => amount * 100;
+const fromDollarToCent = amount => amount * 100;
 
 const successPayment = data => {
-  alert('Payment Successful');
+  swal({
+    title: 'Payment Successful',
+    text: 'Thanks for shopping with us!',
+    type: 'success',
+    confirmButtonText: 'Confirm'
+  });
 };
 
 const errorPayment = data => {
-  alert('Payment Error');
+  swal({
+    title: 'Payment Error',
+    text: 'We ran into an error processing your payment.',
+    type: 'error',
+    confirmButtonText: 'Try Again'
+  });
 };
 
 const onToken = (amount, description) => token =>
@@ -23,7 +34,7 @@ const onToken = (amount, description) => token =>
       description,
       source: token.id,
       currency: CURRENCY,
-      amount: fromEuroToCent(amount)
+      amount: fromDollarToCent(amount)
     })
     .then(successPayment)
     .catch(errorPayment);
@@ -32,7 +43,7 @@ const Checkout = ({ name, description, amount }) =>
   <StripeCheckout
     name={name}
     description={description}
-    amount={fromEuroToCent(amount)}
+    amount={fromDollarToCent(amount)}
     token={onToken(amount, description)}
     currency={CURRENCY}
     stripeKey={'pk_test_BmOeo6y2EIUedZoOq4Fv8Ejx'}

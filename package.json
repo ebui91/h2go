@@ -9,6 +9,7 @@
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
+    "fuse.js": "^3.2.0",
     "massive": "^4.5.0",
     "material-ui": "^0.19.4",
     "passport": "^0.4.0",
@@ -21,7 +22,8 @@
     "react-stripe-checkout": "^2.6.3",
     "redux": "^3.7.2",
     "redux-promise-middleware": "^4.4.2",
-    "stripe": "^5.3.0"
+    "stripe": "^5.3.0",
+    "sweetalert2": "^7.0.5"
   },
   "scripts": {
     "start": "react-scripts start",

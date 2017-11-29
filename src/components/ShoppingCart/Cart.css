@@ -1,10 +1,15 @@
 .cart-main-container{
   margin-top: 100px;
   height: 100vh;
+  font-family: 'Roboto', sans-serif;
 }
 
 .cart-main-container h1, h2{
   margin-left: 15px;
+}
+
+.cart-body{
+  min-height: 80vh;
 }
 
 .cart-list{
@@ -38,7 +43,7 @@
 
 .checkout-container{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-bottom: 25px;

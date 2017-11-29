@@ -4,6 +4,7 @@ import Footer from '../Footer/Footer';
 import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom';
 import Card from 'material-ui/Card';
+import swal from 'sweetalert2';
 import Checkout from '../Checkout/Checkout';
 import axios from 'axios';
 import './Cart.css';
@@ -36,6 +37,9 @@ class Cart extends Component{
       this.setState({ cartList: response.data });
       console.log(response);
     })
+    axios.get(`/cart/total/${this.props.user.id}`).then(response=> {
+      this.setState({ total: response.data[0].sum });
+    });
   }
 
   componentWillMount(){
@@ -55,7 +59,12 @@ class Cart extends Component{
             <h3>{item.product_name}</h3>
             <img className='remove-icon' src={require('../../images/cancel.png')} alt='X' onClick={ ()=> {
               this.removeItem(item);
-              alert('Item removed from cart!');
+              swal({
+                title: 'Item removed from cart!',
+                text: 'Psssst... yall got any more of that water?',
+                type: 'success',
+                confirmButtonText: 'Keep Shopping'
+              });
               }
             }/>
           </div>
@@ -66,17 +75,21 @@ class Cart extends Component{
     return(
       <div className='cart-main-container'>
         <Navbar />
-        <h1> My Cart </h1>
-        { cart }
-        <h2> Order Total: ${ this.state.total } </h2>
+        <div className='cart-body'>
+          <h1> My Cart </h1>
+          <hr/>
+          { cart }
+          <h2> Order Total: ${ this.state.total || '0.00' } </h2>
 
-        <div className='checkout-container'>
-          <Checkout
-            className='checkout-btn'
-            name={'H2GO'}
-            description={'Thanks for Ordering!'}
-            amount={1}
-          />
+          <div className='checkout-container'>
+            <Checkout
+              className='checkout-btn'
+              name={'H2GO'}
+              description={'Thanks for Ordering!'}
+              amount={this.state.total}
+            />
+            <p>Payments powered by Stripe &copy;</p>
+          </div>
         </div>
 
         <div className='sticky-footer'>

@@ -3,7 +3,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Navbar from '../Navbar/Navbar';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Dialog from 'material-ui/Dialog';
+import swal from 'sweetalert2';
 import axios from 'axios';
 import './Detailed.css';
 
@@ -15,26 +15,20 @@ class Detailed extends Component{
       product: [],
       open: false
     }
-    this.removeCart= this.removeCart.bind(this);
   }
 
   componentDidMount(){
     axios.get(`/api/details/${this.props.match.params.id}`).then(response=> {
       this.setState({ product: response.data })
     });
-    console.log('Detailed: ', this.props.user);
   }
 
   addCart(product){
     var user= this.props.user;
     if(product && user){
+      console.log(this.props.user);
       axios.post('/cart', { user: user, product_name: product.name, product_price: product.price });
     }
-  }
-
-  removeCart(product){
-    //axios.delete maybe... but the problem is we need to be able to identify individual products
-    //I THINK that once an item is removed, Cart will re-render and the new total will be displayed.
   }
 
   render(){
@@ -42,21 +36,34 @@ class Detailed extends Component{
       return(
         <div className='detailed-main-container'>
           <Navbar />
-          <h1>{product && product.name} ({product && product.bottle_size})</h1>
+            <h1>{product && product.name} ({ product && product.bottle_size })</h1>
 
-          <div className='detailed-info'>
-            <h2>${product && product.price}</h2>
-          </div>
+          <div className='product-display'>
+            <div className='detailed-left'>
+              <img className='detailed-pic' src= {product && product.img_url} alt='product-pic'/>
+            </div>
 
-          <img className='detailed-pic' src= {product && product.img_url} alt='product-pic'/>
-          <h3>pH: {product && product.ph}</h3>
-          <p className='detailed-desc'>{product && product.description}</p>
+            <div className='detailed-right'>
+              <div className='detailed-info'>
+                <p className='detailed-desc'>{ product && product.description }</p>
+                <h2>${ product && product.price }</h2>
+                <h2>pH: { product && product.ph }</h2>
+              </div>
 
-          <div className='detailed-btns'>
-            <Link to='/products'>
-            <RaisedButton className='btn' label="Back" />
-            </Link>
-            <RaisedButton className='btn' label="Add to Cart" onClick={()=> { this.addCart(product); alert('Item added to cart!') }} />
+              <div className='detailed-btns'>
+                <Link to='/products'>
+                <RaisedButton className='btn' label="Back" />
+                </Link>
+                <RaisedButton className='btn' label="Add to Cart" onClick={()=> { this.addCart(product);
+                  swal({
+                    title: 'Item added to cart!',
+                    text: 'Never Stay Thirsty, My Friends',
+                    type: 'success',
+                    confirmButtonText: 'Keep Shopping'
+                  });
+                }} />
+              </div>
+            </div>
           </div>
         </div>
       )

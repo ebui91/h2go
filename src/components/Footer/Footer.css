@@ -5,7 +5,7 @@
   width: 100vw;
   background: #111;
   opacity: 0.9;
-  font-family: Arial;
+  font-family: 'Roboto', sans-serif;
 }
 
 .columns{
@@ -24,7 +24,10 @@
 }
 
 .footer-column h2{
-  color: #FFF;
+  color: #F2F2F2;
+  margin-bottom: 5px;
+  margin: auto;
+  margin-top: 10px; 
   margin-bottom: 5px;
 }
 
@@ -42,7 +45,7 @@
 
 .social-media{
   text-align: center;
-  color: #FFF;
+  color: #F2F2F2;
   width: 40%;
   margin: auto;
 }

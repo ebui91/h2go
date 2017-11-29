@@ -1,2 +1,7 @@
 .about-main-container{
 }
+
+.about-body{
+  height: 65vh;
+  width: 100%;
+}

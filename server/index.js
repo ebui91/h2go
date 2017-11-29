@@ -10,11 +10,12 @@ const { secret }= require('../config.js').session;
 const { domain, clientID, clientSecret }= require("../config").auth0;
 
 //Stripe
+const { secretKey }= require('../config.js').stripe;
+const stripe= require('stripe')(secretKey);
 const SERVER_CONFIGS = require('./constants/server');
 
 const configureServer = require('./server');
 const configureRoutes = require('./routes');
-
 
 const controller= require('./controllers/controller');
 
@@ -26,7 +27,6 @@ configureRoutes(app);
 
 //Serve public files to server whenever we are done building.
 // app.use(express.static(`${__dirname}/build`));
-
 
 massive(connectionString)
 .then(dbInstance=> app.set('db', dbInstance))
@@ -100,13 +100,27 @@ app.get('/cart/:id', controller.getUserCart);
 app.delete('/cart/:id', controller.removeFromCart);
 app.get('/cart/total/:id', controller.getCartTotal);
 app.post('/cart', controller.addToCart);
+app.post('/checkout', (req, res)=>{
+  stripe.charges.create(req.body, (stripeErr, stripeRes)=> {
+    if(stripeErr){
+      res.status(500).send({ error: stripeErr });
+    }else{
+      res.status(200).send({ success: stripeRes });
+      console.log('response:', stripeRes);
+      }
+    }
+  );
+});
+
 
 //Stripe Endpoints
 // app.get('/payments',);
 // app.post('/payments',);
 
 app.get('/me', function(req, res) {
-  if (!req.user) {return res.status(404)};
+  if(!req.user){
+    return res.status(404)
+  };
   res.status(200).json(req.user);
 });
 

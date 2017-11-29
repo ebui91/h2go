@@ -32,8 +32,6 @@ class Products extends Component{
     })
   }
 
-  //shouldComponentUpdate(){}
-
   handleSearch(val){
     this.setState({ searchVal: val });
     this.setState({ filteredProducts: this.state.productsList.filter(product=> {

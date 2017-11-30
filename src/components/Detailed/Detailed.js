@@ -26,7 +26,6 @@ class Detailed extends Component{
   addCart(product){
     var user= this.props.user;
     if(product && user){
-      console.log(this.props.user);
       axios.post('/cart', { user: user, product_name: product.name, product_price: product.price });
     }
   }
@@ -46,8 +45,8 @@ class Detailed extends Component{
             <div className='detailed-right'>
               <div className='detailed-info'>
                 <p className='detailed-desc'>{ product && product.description }</p>
-                <h2>${ product && product.price }</h2>
-                <h2>pH: { product && product.ph }</h2>
+                <h4>pH: { product && product.ph }</h4>
+                <h2>${ product && product.price }</h2>    
               </div>
 
               <div className='detailed-btns'>

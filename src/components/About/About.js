@@ -10,7 +10,7 @@ class About extends Component{
         <Navbar />
 
         <div className='about-body'>
-
+        
         </div>
 
         <Footer />

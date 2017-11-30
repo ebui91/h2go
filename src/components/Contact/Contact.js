@@ -55,6 +55,7 @@ class Contact extends Component{
 
           <div className='contact-right'>
             <iframe
+              title='google-map'
               className='map'
               width="600"
               height="450"

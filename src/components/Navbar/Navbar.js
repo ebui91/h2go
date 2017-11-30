@@ -3,14 +3,13 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { reqUser } from '../../redux/reducer';
 import RaisedButton from 'material-ui/RaisedButton';
+import Badge from '../Badge'; 
 import './Navbar.css';
 
 class Navbar extends Component{
   constructor(props){
     super(props);
-
-    this.state= {};
-
+    
     this.handleLogin= this.handleLogin.bind(this);
   }
 
@@ -33,23 +32,26 @@ class Navbar extends Component{
         </div>
 
         <div className='nav-mid'>
-          <Link to='/about'>
-            <h3>About</h3>
+          <Link className='third after' to='/about'>
+            <span>About</span>
           </Link>
 
-          <Link to='/contact'>
-            <h3>Contact</h3>
+          <Link className='third after' to='/contact'>
+            <span>Contact</span>
           </Link>
 
-          <Link to='/products'>
-            <h3>Products</h3>
+          <Link className='third after' to='/products'>
+            <span>Products</span>
           </Link>
         </div>
 
         <div className='nav-bottom'>
-          <Link to='/cart'>
-            <img className='shopping-cart' src={require('../../images/shopping-cart.png')} alt='shopping-cart'/>
-          </Link>
+          <div className='cart'>
+            <Link to='/cart'>
+              <img className='shopping-cart' src={require('../../images/shopping-cart.png')} alt='shopping-cart'/>
+            </Link>
+            <Badge />
+          </div>
           <RaisedButton label={this.props.logged} onClick={this.handleLogin} />
         </div>
       </div>

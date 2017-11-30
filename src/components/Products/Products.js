@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
+import Search from '../Search/Search';
 import { Link } from 'react-router-dom';
-// import { connect } from 'react-redux';
-// import { searchProducts, submitSearch } from '../../redux/reducer';
 import Card from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import './Products.css';
@@ -17,7 +16,7 @@ class Products extends Component{
       productsList: [],
       filteredProducts: [],
       sortVal: '',
-      searchVal: '',
+      searchVal: ''
     }
     this.handleSort= this.handleSort.bind(this);
     this.submitSort= this.submitSort.bind(this);
@@ -58,8 +57,7 @@ class Products extends Component{
       this.setState({ productsList: response.data });
     })
   }
-
-  //Search methods are currently in the Redux reducer
+  
   render(){
     var products= this.state.productsList.map(function(product, index){
       return(
@@ -67,7 +65,7 @@ class Products extends Component{
           <Card className='product-container'>
               <p>{product.name}</p>
               <p>${product.price}</p>
-              <div className='product-img' style={{backgroundImage:`url(${product.img_url})`}} alt='product'></div>
+              <div className='product-img' style={{ backgroundImage:`url(${product.img_url})` }} alt='product'></div>
               <RaisedButton className='btn' label=" Product Details" />
           </Card>
         </Link>
@@ -77,13 +75,16 @@ class Products extends Component{
     return(
       <div className='main-product-container'>
         <Navbar />
+        
+        <hr/>
         <h1>Products</h1>
-
+        <hr/>  
+        
         <div className='searchbar'>
           <div className='search'>
             <img className='search-icon' src= { require('../../images/search-icon.png') } alt='search-icon' />
             Search:
-            <input className='input-field' type='text' placeholder='' onChange={ e=> this.handleSearch(e.target.value) }></input>
+            <Search handleSearch= { this.handleSearch } searchVal= { this.state.searchVal } filteredProducts= { this.state.filteredProducts } />
             <RaisedButton className='search-btn' label="SEARCH" onClick={this.submitSearch}/>
             <RaisedButton className='search-btn' label="CLEAR" onClick={this.clearSearch}/>
           </div>

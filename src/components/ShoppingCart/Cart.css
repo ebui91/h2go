@@ -8,6 +8,10 @@
   margin-left: 15px;
 }
 
+.cart-main-container h1{
+  text-align: center;
+}
+
 .cart-body{
   min-height: 80vh;
 }
@@ -47,4 +51,9 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 25px;
+}
+
+hr{
+  width: 90%;
+  color: grey;
 }

@@ -3,7 +3,7 @@ import axios from 'axios';
 import StripeCheckout from 'react-stripe-checkout';
 import swal from 'sweetalert2';
 
-import STRIPE_PUBLISHABLE from '../../constants/stripe';
+// import STRIPE_PUBLISHABLE from '../../constants/stripe';
 import PAYMENT_SERVER_URL from '../../constants/server';
 
 const CURRENCY = 'USD';

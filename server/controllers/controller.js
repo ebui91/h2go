@@ -1,7 +1,6 @@
 module.exports= {
   getProducts: (req, res, next)=> {
     const dbInstance= req.app.get('db');
-    console.log(dbInstance);
     dbInstance.get_products()
     .then(products=> res.status(200).json(products))
     .catch( ()=> res.status(500).json());

@@ -24,18 +24,17 @@ class Cart extends Component{
     this.handleClose= this.handleClose.bind(this);
   }
 
-  handleOpen = () => {
+  handleOpen= ()=>{
     this.setState({ open: true });
   };
 
-  handleClose = () => {
+  handleClose= ()=>{
     this.setState({ open: false });
   };
 
   removeItem(item){
     axios.delete(`/cart/${item.id}`).then(response=> {
       this.setState({ cartList: response.data });
-      console.log(response);
     })
     axios.get(`/cart/total/${this.props.user.id}`).then(response=> {
       this.setState({ total: response.data[0].sum });
@@ -76,6 +75,7 @@ class Cart extends Component{
       <div className='cart-main-container'>
         <Navbar />
         <div className='cart-body'>
+          <hr/>
           <h1> My Cart </h1>
           <hr/>
           { cart }

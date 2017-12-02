@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { reqUser } from '../../redux/reducer';
 import RaisedButton from 'material-ui/RaisedButton';
-import Badge from '../Badge'; 
+import Badge from '../Badge/Badge';
 import './Navbar.css';
 
 class Navbar extends Component{
   constructor(props){
     super(props);
-    
+
     this.handleLogin= this.handleLogin.bind(this);
   }
 
@@ -28,7 +28,7 @@ class Navbar extends Component{
           <Link to='/'>
             <img className='nav-logo' src={require('../../images/logo.png')} alt='h2go-logo' />
           </Link>
-          <h1>Welcome {this.props.user.name}!</h1>
+          <h1>Welcome { this.props.user.name }!</h1>
         </div>
 
         <div className='nav-mid'>
@@ -48,11 +48,12 @@ class Navbar extends Component{
         <div className='nav-bottom'>
           <div className='cart'>
             <Link to='/cart'>
-              <img className='shopping-cart' src={require('../../images/shopping-cart.png')} alt='shopping-cart'/>
+              <img className='shopping-cart' src={ require('../../images/shopping-cart.png') } alt='shopping-cart'/>
             </Link>
             <Badge />
           </div>
-          <RaisedButton label={this.props.logged} onClick={this.handleLogin} />
+          <RaisedButton className='log-btn' label={ this.props.logged } onClick={ this.handleLogin } />
+          <img src={ require('../../images/login-key-icon.png') } className='mobile-btn' alt='login-logo'/>
         </div>
       </div>
     )

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import Navbar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import swal from 'sweetalert2';
@@ -17,9 +18,10 @@ class Detailed extends Component{
     }
   }
 
-  componentDidMount(){
+  componentWillMount(){
     axios.get(`/api/details/${this.props.match.params.id}`).then(response=> {
       this.setState({ product: response.data })
+      console.log(response.data);
     });
   }
 
@@ -35,7 +37,12 @@ class Detailed extends Component{
       return(
         <div className='detailed-main-container'>
           <Navbar />
-            <h1>{product && product.name} ({ product && product.bottle_size })</h1>
+
+          <div className=''>
+
+          </div>
+          
+          <h1>{ product && product.name } ({ product && product.bottle_size })</h1>
 
           <div className='product-display'>
             <div className='detailed-left'>
@@ -44,9 +51,9 @@ class Detailed extends Component{
 
             <div className='detailed-right'>
               <div className='detailed-info'>
-                <p className='detailed-desc'>{ product && product.description }</p>
                 <h4>pH: { product && product.ph }</h4>
-                <h2>${ product && product.price }</h2>    
+                <p className='detailed-desc'>{ product && product.description }</p>
+                <h2>${ product && product.price }</h2>
               </div>
 
               <div className='detailed-btns'>
@@ -64,6 +71,7 @@ class Detailed extends Component{
               </div>
             </div>
           </div>
+          <Footer />
         </div>
       )
     }

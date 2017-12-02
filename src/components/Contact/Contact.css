@@ -1,6 +1,6 @@
 .contact-main-container{
-  margin-top: 100px;
-  font-family: 'Roboto', sans-serif;
+  margin-top: 80px;
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
 }
 
@@ -16,17 +16,21 @@
   align-items: center;
   opacity: 0.8;
   padding: 0, 25px;
+  font-family: Pasajero;
 }
 
 .contact-main-body h1{
-  color: #F2F2F2;
   font-size: 42px;
   margin-bottom: 0px;
 }
 
 .contact-main-body p{
-  color: #F2F2F2;
   font-size: 16px;
+}
+
+.contact-text{
+  background: rgba(255,255,255, 0.7);
+  padding: 15px;
 }
 
 .inquiry-section{
@@ -81,8 +85,8 @@
 }
 
 .waterdrop{
-  height: 150px;
-  width: 150px;
+  height: 125px;
+  width: 125px;
 }
 
 .contact-info{

@@ -11,15 +11,21 @@ class CartBadge extends Component{
     this.state={
       cartList: []
     }
+    this.checkCart= this.checkCart.bind(this);
   }
   
-  componentWillMount(){
+  checkCart(){
     axios.get(`/cart/${this.props.user.id}`).then(response=> {
       this.setState({ cartList: response.data });
     });    
   }
   
+  componentWillMount(){
+    this.checkCart();
+  }
+  
   render(){
+    this.checkCart();
     return(
       <div>
         { this.state.cartList.length > 0 ? 

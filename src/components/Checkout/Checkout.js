@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { connect } from 'react-redux';
 import axios from 'axios';
 import StripeCheckout from 'react-stripe-checkout';
 import swal from 'sweetalert2';
@@ -6,11 +7,11 @@ import swal from 'sweetalert2';
 // import STRIPE_PUBLISHABLE from '../../constants/stripe';
 import PAYMENT_SERVER_URL from '../../constants/server';
 
-const CURRENCY = 'USD';
+const CURRENCY= 'USD';
 
-const fromDollarToCent = amount => amount * 100;
+const fromDollarToCent= amount=> amount * 100;
 
-const successPayment = data => {
+const successPayment= data=> {
   swal({
     title: 'Payment Successful',
     text: 'Thanks for shopping with us!',
@@ -28,7 +29,7 @@ const errorPayment = data => {
   });
 };
 
-const onToken = (amount, description) => token =>
+const onToken = (amount, description) => token => {
   axios.post(PAYMENT_SERVER_URL,
     {
       description,
@@ -38,7 +39,8 @@ const onToken = (amount, description) => token =>
     })
     .then(successPayment)
     .catch(errorPayment);
-
+  // axios.post(`/payments/${ this.props.user.id }`, { user_id: this.props.user.id, total: amount });
+}
 const Checkout = ({ name, description, amount }) =>
   <StripeCheckout
     name={name}
@@ -49,4 +51,11 @@ const Checkout = ({ name, description, amount }) =>
     stripeKey={'pk_test_BmOeo6y2EIUedZoOq4Fv8Ejx'}
   />
 
-export default Checkout;
+function mapStateToProps(state){
+  const { user }= state
+  return{
+    user
+  }
+}
+
+export default connect(mapStateToProps)(Checkout);

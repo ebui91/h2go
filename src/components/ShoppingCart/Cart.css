@@ -1,7 +1,7 @@
 .cart-main-container{
   margin-top: 100px;
   height: 100vh;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .cart-main-container h1, h2{
@@ -9,6 +9,7 @@
 }
 
 .cart-main-container h1{
+  margin: auto;
   text-align: center;
 }
 
@@ -17,10 +18,12 @@
 }
 
 .cart-list{
-  height: 150px;
+  /*height: 150px;*/
+  max-height: 300px;
   width: 40vw;
   padding: 20px;
   margin: 25px;
+  box-shadow: 10px 10px 5px #888888;
 }
 
 .cart-list h3{
@@ -39,10 +42,27 @@
   width: 40px;
 }
 
-.remove-icon{
+.cart-hr{
+  width: 100%;
+}
+
+.remove-btn{
   height: 30px;
   width: 30px;
   margin-bottom: 25px;
+  font-size: 14px;
+  background: #FFF;
+  color: #111;
+  border-style: solid;
+  border-color: #111;
+  border-width: 1px;
+  border-radius: 50%;
+}
+
+.remove-btn:hover{
+  background: #555;
+  color: #FFF;
+  transition: all ease 0.6s;
 }
 
 .checkout-container{
@@ -51,9 +71,4 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 25px;
-}
-
-hr{
-  width: 90%;
-  color: grey;
 }

@@ -1,11 +1,9 @@
 .footer-main-container{
   min-height: 250px;
-  /*bottom: 0;
-  position: absolute;*/
-  width: 100vw;
+  width: 100%;
   background: #111;
   opacity: 0.9;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .columns{
@@ -27,7 +25,7 @@
   color: #F2F2F2;
   margin-bottom: 5px;
   margin: auto;
-  margin-top: 10px; 
+  margin-top: 10px;
   margin-bottom: 5px;
 }
 
@@ -41,6 +39,7 @@
   list-style: none;
   line-height: 2em;
   color: #838383;
+  font-size: 14px;
 }
 
 .social-media{
@@ -57,6 +56,7 @@
 .company-info p{
   color: #838383;
   margin-bottom: 0;
+  font-size: 14px;
 }
 
 .social-media ul{
@@ -74,4 +74,30 @@
 .social-media-links .fa:hover{
   color: #1c97e6;
   transition: all 0.6s;
+}
+
+@media (max-width: 600px){
+  .footer-column h2{
+    font-size: 14px;
+  }
+
+  .footer-column li{
+    font-size: 12px;
+  }
+
+  .social-media ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .company-info p{
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 400px){
+  .footer-main-container{
+    width: 100%;
+  }
 }

@@ -31,7 +31,7 @@ class Home extends Component{
 
         <section className="section section-light">
           <h2>FLUID</h2>
-          <p> Water (H2O) is a polar inorganic compound that is at room temperature a tasteless and odorless liquid, which is nearly colorless apart from a hint of blue. It is by far the most studied chemical compound and is described as the "universal solvent" for its ability to dissolve many substances. This allows it to be the "solvent of life". It is the only common substance to exist as a solid, liquid, and gas on Earth. </p>
+          <p className='japanese'> 否ろやぽー談5第づひ兄対コサ済覧ざぶ題想ラ世関イヲウ創今マキツオ頭主ょむげび隣教ケス死木に適松ょしぽ給7暑モハウ越公者体女ぐ。治レ武円レる動求質カイテ量58火リヌヤユ江下対園めらラひ市65真ロニ得指マワ周幼治ぶ検神行偵叫垂びづくや。間ほっ北野フ信因ふわまご築政さたじい基搬だれゅ朝82提そへー優朝てッ相禽断スヒウ代変交ぴょど氏択くぼこ車少シナコ長入ツイ早下中症チオラ脱占祉よとぽ。 </p>
         </section>
 
         <div className="pimg3">
@@ -43,8 +43,8 @@ class Home extends Component{
         </div>
 
         <section className="section section-light">
-          <h2>Section Three</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <h2> AGUA </h2>
+          <p className='japanese'>音ウ堅害陣トや逆除クスメ額臓棄ネラナリ百全注16富り取円ラ間軟クげへさ成17雪賀アヲルコ半悪テ玲8真モエヱナ焼委替とドおラ。間トヌ金絡ょ信京員ちフて問日ッ菱経なル調雪でド産口えし崎4欺ハ図因修チメユ真編シ整8新ニナラ変午ッりをら大点を焼供ゃぎぽめ携如幡揃擁せご。</p>
         </section>
 
         <div className="pimg3"></div>

@@ -100,22 +100,24 @@ app.get('/cart/:id', controller.getUserCart);
 app.delete('/cart/:id', controller.removeFromCart);
 app.get('/cart/total/:id', controller.getCartTotal);
 app.post('/cart', controller.addToCart);
+app.delete('/checkout/:id', controller.deleteCart);
 app.post('/checkout', (req, res)=>{
   stripe.charges.create(req.body, (stripeErr, stripeRes)=> {
+    console.log(req.body);
     if(stripeErr){
       res.status(500).send({ error: stripeErr });
     }else{
       res.status(200).send({ success: stripeRes });
-      console.log('response:', stripeRes);
+      // console.log('response:', stripeRes);
       }
-    }
-  );
+    });
 });
 
 
 //Stripe Endpoints
 // app.get('/payments',);
-// app.post('/payments',);
+// app.post('/payments/:id', controller.postPayment);
+
 
 app.get('/me', function(req, res) {
   if(!req.user){

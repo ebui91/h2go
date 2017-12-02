@@ -43,7 +43,7 @@ class Products extends Component{
   }
 
   clearSearch(){
-    axios.get('/products').then(response=>{
+    axios.get('/products').then(response=> {
       this.setState({ productsList: response.data });
     })
   }
@@ -53,11 +53,11 @@ class Products extends Component{
   }
 
   submitSort(){
-    axios.get(`/products/${this.state.sortVal}`).then(response => {
+    axios.get(`/products/${this.state.sortVal}`).then(response=> {
       this.setState({ productsList: response.data });
     })
   }
-  
+
   render(){
     var products= this.state.productsList.map(function(product, index){
       return(
@@ -75,11 +75,9 @@ class Products extends Component{
     return(
       <div className='main-product-container'>
         <Navbar />
-        
-        <hr/>
-        <h1>Products</h1>
-        <hr/>  
-        
+
+        <h1 className='heading'>Products</h1>
+
         <div className='searchbar'>
           <div className='search'>
             <img className='search-icon' src= { require('../../images/search-icon.png') } alt='search-icon' />
@@ -112,14 +110,5 @@ class Products extends Component{
     )
   }
 }
-
-// function mapStateToProps(state){
-//   const { searchVal }= state;
-//   return{
-//     searchVal
-//   };
-// }
-//
-// export default connect(mapStateToProps, { searchProducts, submitSearch })(Products);
 
 export default Products;

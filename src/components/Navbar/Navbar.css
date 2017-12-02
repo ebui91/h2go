@@ -145,3 +145,107 @@ a.before:hover:before,
 a.after:hover:after {
   width: 100%;
 }
+
+.mobile-btn{
+  visibility: hidden;
+  position: absolute;
+}
+
+@media (max-width: 1200px){
+  .nav-top h1{
+    font-size: 14px;
+  }
+
+  .nav-mid{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .nav-mid span{
+    font-size: 14px;
+  }
+
+  .shopping-cart{
+    height: 30px;
+    width: 30px;
+    margin: 0px;
+  }
+
+  .nav-logo{
+    height: 50px;
+    width: 50px;
+    margin: 0px;
+  }
+}
+
+@media (max-width: 420px){
+  .nav-top h1{
+    font-size: 12px;
+  }
+
+  .nav-mid{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .nav-mid span{
+    font-size: 12px;
+  }
+
+  .shopping-cart{
+    height: 25px;
+    width: 25px;
+  }
+
+  .nav-logo{
+    height: 30px;
+    width: 30px;
+    margin: 0px;
+  }
+
+  .log-btn{
+    visibility: hidden;
+    position: absolute;
+  }
+
+  .mobile-btn{
+    visibility: visible;
+    position: relative;
+    height: 20px;
+    width: 20px;
+    margin: 0px;
+    padding: 0px;
+    bottom: 3px;
+  }
+
+  .nav-top h1{
+    visibility: hidden;
+    position: absolute;
+  }
+
+  .nav-mid span{
+    font-size: 10px;
+  }
+
+  .nav-mid{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .nav-main{
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 380px){
+  .nav-mid{
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+  }
+
+  .nav-main{
+    height: 60px;
+  }
+}

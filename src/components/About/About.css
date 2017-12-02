@@ -1,7 +1,15 @@
 .about-main-container{
+  margin-top: 100px;
 }
 
 .about-body{
   height: 65vh;
   width: 100%;
+  text-align: center;
+}
+
+.testimonials-container{
+  height: 70vh;
+  width: 100%;
+  background: #F5F5F5;
 }

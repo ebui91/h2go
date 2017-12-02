@@ -19,7 +19,6 @@
   background-position:center;
   background-size:cover;
   background-repeat:no-repeat;
-
   /*
     fixed = parallax
     scroll = normal
@@ -49,6 +48,7 @@
 
 .section-light{
   background-color:white;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .ptext{
@@ -79,4 +79,31 @@
 
 .light-text {
   color: #fff;
+}
+
+.japanese{
+  font-size: 14px;
+  line-height: normal;
+}
+
+@media (max-width: 420px){
+  .home-container{
+    margin-top: 100px;
+  }
+
+  .pimg1 .border{
+    font-size: 16px;
+  }
+
+  .ptext{
+    font-size: 16px;
+  }
+
+  .japanese{
+    font-size: 12px;
+  }
+
+  .home-container h2{
+    font-size: 16px;
+  }
 }

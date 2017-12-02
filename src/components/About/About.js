@@ -10,7 +10,11 @@ class About extends Component{
         <Navbar />
 
         <div className='about-body'>
-        
+          <h1 className='heading'>ABOUT H2GO</h1>
+        </div>
+
+        <div className='testimonials-container'>
+
         </div>
 
         <Footer />

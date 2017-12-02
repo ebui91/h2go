@@ -71,5 +71,19 @@ module.exports= {
     dbInstance.remove_from_cart([req.params.id])
     .then(cart=> res.status(200).json(cart))
     .catch( ()=> res.status(500).json());
+  },
+  deleteCart: (req, res, next)=> {
+    const dbInstance= req.app.get('db');
+    console.log(req.params);
+    dbInstance.delete_cart([req.params.id])
+    .then(cart=> res.status(200).json(cart))
+    .catch( ()=> res.status(500).json());
+  },
+  postPayment: (req, res, next)=> {
+    const dbInstance= req.app.get('db');
+    const { user, amount }= req.body;
+    dbInstance.post_payment([user.id, amount])
+    .then(response=> res.status(200).json(response))
+    .catch( ()=> res.status(500).json());
   }
 }

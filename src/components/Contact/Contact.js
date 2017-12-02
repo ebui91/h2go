@@ -10,15 +10,17 @@ class Contact extends Component{
         <Navbar />
 
         <div className='contact-main-body'>
-          <h1> Contact Us! </h1>
-          <p> H2GO &copy; is here to provide you with additional information, or answer any questions you may have. </p>
+          <div className='contact-text'>
+            <h1> Contact Us! </h1>
+            <p> H2GO &copy; is here to provide you with additional information, or answer any questions that you may have. </p>
+          </div>
         </div>
 
         <div className='inquiry-section'>
           <div>
             <h1> Reason for Inquiry </h1>
-            <img className='waterdrop' src={ require('../../images/waterdrop.png') } alt='water-drop' />
             <p> Please select the reason for your inquiry. </p>
+            <img className='waterdrop' src={ require('../../images/waterdrop.png') } alt='water-drop' />
           </div>
 
           <div className='inquiry-options'>

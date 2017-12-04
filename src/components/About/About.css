@@ -1,15 +1,208 @@
 .about-main-container{
   margin-top: 100px;
-}
-
-.about-body{
-  height: 65vh;
-  width: 100%;
   text-align: center;
 }
 
+.splash-img{
+  background-image: url('../../images/water-backdrop.jpeg');
+  height: 75vh;
+  width: 100%;
+  margin-top: 25px;
+  opacity: 0.7;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.about-info{
+  height: 135vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-info h2{
+  font-family: Pasajero;
+}
+
+.about-info p{
+  font-family: Montserrat;
+}
+
+.about-row{
+  height: 45vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.about-row-left{
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+#left1{
+  background-image: url('../../images/heart.jpg');
+  background-size: center;
+  background-repeat: no-repeat;
+  height: 90%;
+  width: 90%;
+  border-radius: 5px;
+}
+
+#left2{
+  background-image: url('../../images/h2o-bottle.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 90%;
+  width: 90%;
+  margin: auto;
+  border-radius: 5px;
+}
+
+#left3{
+  background-image: url('../../images/pouring-water.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 90%;
+  width: 90%;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.about-row-right{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-row-right p{
+  width: 85%;
+}
+
+.about-row-right hr{
+  width: 90%;
+  color: #000;
+}
+
+#about-subheading{
+  font-family: Pasajero;
+  font-size: 24px;
+  opacity: 0.5;
+}
+
+#about-subheading:hover{
+  transition: all ease 0.7s;
+  opacity: 1.0;
+  color: #06a5f4;
+}
+
+/*.about-left{
+  border-style: solid;
+  height: 100%;
+  width: 50%;
+}
+
+.about-right{
+  border-style: solid;
+  height: 100%;
+  width: 50%;
+}*/
+
 .testimonials-container{
-  height: 70vh;
+  height: 150vh;
   width: 100%;
   background: #F5F5F5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+}
+
+.testimonials-container h1{
+  font-family: Pasajero;
+}
+
+.steven-testimonial{
+  margin-top: 10px;
+  width: 100%;
+  height: 40vh;
+  margin-bottom: 15px;
+}
+
+.steven-testimonial hr{
+  width: 60%;
+}
+
+.steven-testimonial p{
+  font-family: Montserrat;
+  font-size: 24px;
+  opacity: 0.7;
+  display: flex;
+  justify-content: center;
+}
+
+.steven-testimonial h3{
+  font-size: 24px;
+  font-family: Roboto;
+}
+
+.steven-img{
+  margin-right: 10px;
+  -webkit-animation:spin 0.9s linear infinite;
+  -moz-animation:spin 0.9s linear infinite;
+  animation:spin 0.9s linear infinite;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(50deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(50deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(50deg); transform:rotate(50deg); } }
+
+.testimonial-cols{
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.testimonial-ind{
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.testimonial-ind h3{
+  font-size: 24px;
+  font-family: Roboto;
+}
+
+.testimonial{
+  width: 80%;
+  line-height: 3.0em;
+  font-family: Montserrat;
+  opacity: 0.6;
+}
+
+.testimonial:hover{
+  transition: all ease 1.0s;
+  opacity: 1.0;
+}
+
+.test-quote{
+  font-size: 48px;
+  font-family: 'IM Fell French Canon', serif;
+}
+
+.testimonial-avatar{
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+.test-line-break{
+  width: 80%;
 }

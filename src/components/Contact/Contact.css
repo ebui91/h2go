@@ -44,6 +44,7 @@
 
 .inquiry-section h1{
   margin-bottom: 0px;
+  font-family: Pasajero;
 }
 
 .inquiry-options{
@@ -57,6 +58,10 @@
 .inquiry-column{
   width: 33%;
   padding: 15px;
+}
+
+.inquiry-column h2{
+  font-family: Pasajero;
 }
 
 .inquiry-column p{
@@ -97,6 +102,10 @@
   flex-direction: row;
   justify-content: space-around;
   padding: 25px;
+}
+
+.contact-info h1{
+  font-family: Pasajero;
 }
 
 .contact-left{

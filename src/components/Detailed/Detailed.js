@@ -36,38 +36,36 @@ class Detailed extends Component{
       var product= this.state.product[0];
       return(
         <div className='detailed-main-container'>
-          <Navbar />
+          <div className='detailed-main-body'>
+            <Navbar />
 
-          <div className=''>
+            <h1>{ product && product.name } ({ product && product.bottle_size })</h1>
 
-          </div>
-          
-          <h1>{ product && product.name } ({ product && product.bottle_size })</h1>
-
-          <div className='product-display'>
-            <div className='detailed-left'>
-              <img className='detailed-pic' src= {product && product.img_url} alt='product-pic'/>
-            </div>
-
-            <div className='detailed-right'>
-              <div className='detailed-info'>
-                <h4>pH: { product && product.ph }</h4>
-                <p className='detailed-desc'>{ product && product.description }</p>
-                <h2>${ product && product.price }</h2>
+            <div className='product-display'>
+              <div className='detailed-left'>
+                <img className='detailed-pic' src= {product && product.img_url} alt='product-pic'/>
               </div>
 
-              <div className='detailed-btns'>
-                <Link to='/products'>
-                <RaisedButton className='btn' label="Back" />
-                </Link>
-                <RaisedButton className='btn' label="Add to Cart" onClick={()=> { this.addCart(product);
-                  swal({
-                    title: 'Item added to cart!',
-                    text: 'Never Stay Thirsty, My Friends',
-                    type: 'success',
-                    confirmButtonText: 'Keep Shopping'
-                  });
-                }} />
+              <div className='detailed-right'>
+                <div className='detailed-info'>
+                  <h4>pH: { product && product.ph }</h4>
+                  <p className='detailed-desc'>{ product && product.description }</p>
+                  <h2>${ product && product.price }</h2>
+                </div>
+
+                <div className='detailed-btns'>
+                  <Link to='/products'>
+                  <RaisedButton className='btn' label="Back" />
+                  </Link>
+                  <RaisedButton className='btn' label="Add to Cart" onClick={()=> { this.addCart(product);
+                    swal({
+                      title: 'Item added to cart!',
+                      text: 'Never Stay Thirsty, My Friends',
+                      type: 'success',
+                      confirmButtonText: 'Keep Shopping'
+                    });
+                  }} />
+                </div>
               </div>
             </div>
           </div>

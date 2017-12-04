@@ -2,14 +2,11 @@ import React, { Component } from 'react';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import { connect } from 'react-redux';
-import { TransitionMotion, spring } from 'react-motion';
 import Card from 'material-ui/Card';
 import swal from 'sweetalert2';
 import Checkout from '../Checkout/Checkout';
 import axios from 'axios';
 import './Cart.css';
-
-// SweetAlert for removing items. Goes in the ()=> for the X img.
 
 class Cart extends Component{
   constructor(props){
@@ -18,22 +15,11 @@ class Cart extends Component{
     this.state= {
       cartList: [],
       total: 0,
-      selectedItem: 0,
-      open: false
+      selectedItem: 0
     }
     this.removeItem= this.removeItem.bind(this);
-    this.handleOpen= this.handleOpen.bind(this);
-    this.handleClose= this.handleClose.bind(this);
     this.clearCart= this.clearCart.bind(this);
   }
-
-  handleOpen= ()=>{
-    this.setState({ open: true });
-  };
-
-  handleClose= ()=>{
-    this.setState({ open: false });
-  };
 
   removeItem(item){
     axios.delete(`/cart/${item.id}`).then(response=> {
@@ -83,13 +69,14 @@ class Cart extends Component{
             <div className='cart-list-line'><p>${ item.product_price }</p></div>
           </Card>
       )
-    }, this)
+    }, this);
+
     return(
       <div className='cart-main-container'>
         <Navbar />
         <div className='cart-body'>
           <h1 className='heading'> My Cart </h1>
-          { cart }
+            { cart }
           <h2> Order Total: ${ this.state.total || '0.00' } </h2>
 
           <div className='checkout-container' onClick= { this.clearCart }>

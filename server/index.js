@@ -26,7 +26,7 @@ configureServer(app);
 configureRoutes(app);
 
 //Serve public files to server whenever we are done building.
-// app.use(express.static(`${__dirname}/build`));
+// app.use(express.static(`${__dirname}/../build`));
 
 massive(connectionString)
 .then(dbInstance=> app.set('db', dbInstance))
@@ -126,6 +126,10 @@ app.get('/me', function(req, res) {
   res.status(200).json(req.user);
 });
 
+const path = require('path')
+app.get('*', (req, res)=>{
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+})
 
 app.listen(port, ()=> {
   console.log(`Server is listening on port: ${port}`);

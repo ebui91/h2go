@@ -74,7 +74,7 @@ module.exports= {
   },
   deleteCart: (req, res, next)=> {
     const dbInstance= req.app.get('db');
-    console.log(req.params);
+    // console.log(req.params);
     dbInstance.delete_cart([req.params.id])
     .then(cart=> res.status(200).json(cart))
     .catch( ()=> res.status(500).json());

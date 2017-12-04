@@ -1,11 +1,6 @@
 .detailed-main-container{
-  margin-top: 120px;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   font-family: 'Montserrat', sans-serif;
+  margin-top: 100px;
 }
 
 .detailed-main-container h1{
@@ -16,7 +11,16 @@
   margin: 10px;
 }
 
+.detailed-main-body{
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .product-display{
+  margin-bottom: 25px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -76,6 +80,10 @@
 }
 
 @media (max-width: 968px){
+  .detailed-main-body{
+    margin-top: 100px;
+  }
+
   .detailed-main-container h1{
     font-size: 18px;
   }

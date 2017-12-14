@@ -17,9 +17,7 @@ class Home extends Component{
           </div>
         </div>
 
-        <section className="section section-light">
-
-        </section>
+        <section className="section section-light"></section>
 
         <div className="pimg2">
           <div className="ptext">
@@ -29,22 +27,22 @@ class Home extends Component{
           </div>
         </div>
 
-        <section className="section section-light">
-          <h2>FLUID</h2>
-          <p className='japanese'> 否ろやぽー談5第づひ兄対コサ済覧ざぶ題想ラ世関イヲウ創今マキツオ頭主ょむげび隣教ケス死木に適松ょしぽ給7暑モハウ越公者体女ぐ。治レ武円レる動求質カイテ量58火リヌヤユ江下対園めらラひ市65真ロニ得指マワ周幼治ぶ検神行偵叫垂びづくや。間ほっ北野フ信因ふわまご築政さたじい基搬だれゅ朝82提そへー優朝てッ相禽断スヒウ代変交ぴょど氏択くぼこ車少シナコ長入ツイ早下中症チオラ脱占祉よとぽ。 </p>
+        <section className="section section-dark">
+          <h2> ESSENTIAL </h2>
+          <p className='japanese'> Water is a transparent and nearly colorless chemical substance that is the main constituent of Earth's streams, lakes, and oceans, and the fluids of most living organisms. Its chemical formula is H2O, meaning that each of its molecules contains one oxygen and two hydrogen atoms that are connected by covalent bonds. Strictly speaking, water refers to the liquid state of a substance that prevails at standard ambient temperature and pressure; but it often refers also to its solid state (ice) or its gaseous state (steam or water vapor). It also occurs in nature as snow, glaciers, ice packs and icebergs, clouds, fog, dew, aquifers, and atmospheric humidity. </p>
         </section>
 
         <div className="pimg3">
           <div className="ptext">
             <span className="border-trans light-text">
-              I SELL WATER
+              STAY WOKE
             </span>
           </div>
         </div>
 
-        <section className="section section-light">
-          <h2> AGUA </h2>
-          <p className='japanese'>音ウ堅害陣トや逆除クスメ額臓棄ネラナリ百全注16富り取円ラ間軟クげへさ成17雪賀アヲルコ半悪テ玲8真モエヱナ焼委替とドおラ。間トヌ金絡ょ信京員ちフて問日ッ菱経なル調雪でド産口えし崎4欺ハ図因修チメユ真編シ整8新ニナラ変午ッりをら大点を焼供ゃぎぽめ携如幡揃擁せご。</p>
+        <section className="section section-dark">
+          <h2> FLUID </h2>
+          <p className='japanese'> Water covers 71% of the Earth's surface. It is vital for all known forms of life. On Earth, 96.5% of the planet's crust water is found in seas and oceans, 1.7% in groundwater, 1.7% in glaciers and the ice caps of Antarctica and Greenland, a small fraction in other large water bodies, 0.001% in the air as vapor, clouds (formed of ice and liquid water suspended in air), and precipitation. Only 2.5% of this water is freshwater, and 98.8% of that water is in ice (excepting ice in clouds) and groundwater. Less than 0.3% of all freshwater is in rivers, lakes, and the atmosphere, and an even smaller amount of the Earth's freshwater (0.003%) is contained within biological bodies and manufactured products. A greater quantity of water is found in the earth's interior. </p>
         </section>
 
         <div className="pimg3"></div>

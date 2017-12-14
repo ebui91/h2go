@@ -47,7 +47,7 @@
 }
 
 .section-light{
-  background-color:white;
+  background-color: #FFF;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -67,6 +67,10 @@
   color:#fff;
 }
 
+.section-dark p{
+  color: #F2F2F2;
+}
+
 .ptext .border{
   background-color:#111;
   color:#fff;
@@ -84,6 +88,8 @@
 .japanese{
   font-size: 14px;
   line-height: normal;
+  font-family: Roboto;
+  color: #333;
 }
 
 @media (max-width: 420px){

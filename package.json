@@ -32,9 +32,5 @@
     "eject": "react-scripts eject",
     "now-start": "node server/index.js",
     "deploy": "now --public --dotenv=.env.prod -d"
-  },
-  "now":{
-  "alias":"h2go"
-  },
-  "proxy": "http://localhost:3001"
+  }
 }

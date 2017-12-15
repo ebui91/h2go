@@ -5,7 +5,7 @@ const session= require('express-session');
 const massive= require('massive');
 const passport= require('passport');
 const Auth0Strategy= require('passport-auth0');
-const connectionString= require('../config.js').massive;
+// const connectionString= require('../config.js').massive;
 // const { secret }= require('../config.js').session;
 // const { domain, clientID, clientSecret }= require("../config").auth0;
 require('dotenv').config();
@@ -19,6 +19,7 @@ const configureServer = require('./server');
 const configureRoutes = require('./routes');
 
 const controller= require('./controllers/controller');
+const CONNECTION_STRING= 'postgres://ptqvjpemafxdkv:9e0c53098f20776bebb7133befa110b4e1da1d9368ecdc7ba588cdf226b48c6b@ec2-54-163-233-103.compute-1.amazonaws.com:5432/d5lq66umtdahvh?ssl=true';
 
 const port= process.env.PORT || 3001;
 const app= express();
@@ -33,7 +34,7 @@ configureRoutes(app);
 //Serve public files to server whenever we are done building.
 app.use(express.static(`${__dirname}/../build`));
 
-massive(process.env.CONNECTION_STRING)
+massive(CONNECTION_STRING)
 .then(dbInstance=> app.set('db', dbInstance))
 .catch(console.log);
 

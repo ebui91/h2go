@@ -19,7 +19,6 @@ const configureServer = require('./server');
 const configureRoutes = require('./routes');
 
 const controller= require('./controllers/controller');
-const CONNECTION_STRING= 'postgres://ptqvjpemafxdkv:9e0c53098f20776bebb7133befa110b4e1da1d9368ecdc7ba588cdf226b48c6b@ec2-54-163-233-103.compute-1.amazonaws.com:5432/d5lq66umtdahvh?ssl=true';
 
 const port= process.env.PORT || 3001;
 const app= express();
@@ -35,7 +34,7 @@ configureRoutes(app);
 app.use(express.static(`${__dirname}/../build`));
 
 //connectionString = development database
-massive(process.env.CONNECTION_STRING)
+massive(process.env.DATABASE_URL || DATABASE_URL)
 .then(dbInstance=> app.set('db', dbInstance))
 .catch(console.log);
 

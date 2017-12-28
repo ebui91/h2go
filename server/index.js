@@ -34,7 +34,8 @@ configureRoutes(app);
 //Serve public files to server whenever we are done building.
 app.use(express.static(`${__dirname}/../build`));
 
-massive(CONNECTION_STRING)
+//connectionString = development database
+massive(process.env.CONNECTION_STRING)
 .then(dbInstance=> app.set('db', dbInstance))
 .catch(console.log);
 

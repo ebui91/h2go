@@ -5,6 +5,7 @@ H2GO is a mock e-Commerce site for water products. This was a personal project m
 ## Getting Started
 
 A live version of this project is viewable at: 
+https://boiling-bastion-21930.herokuapp.com/
 
 ### Prerequisites
 The package.json file contains a detailed list of all dependencies required in this project.

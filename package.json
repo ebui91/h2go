@@ -26,10 +26,11 @@
     "sweetalert2": "^7.0.5"
   },
   "scripts": {
-    "start": "node server/index.js",
-    "heroku-postbuild": "npm install && npm install --only=dev --no-shrinkwrap && npm run build",
+    "start": "react-scripts start",
+    "heroku-postbuild": "npm run build",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "now-start": "node server/index.js"
   }
 }

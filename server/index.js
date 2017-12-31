@@ -26,7 +26,7 @@ configureServer(app);
 configureRoutes(app);
 
 //Serve public files to server whenever we are done building.
-// app.use(express.static(`${__dirname}/../build`));
+app.use(express.static(`${__dirname}/../build`));
 
 massive(connectionString)
 .then(dbInstance=> app.set('db', dbInstance))
@@ -83,7 +83,7 @@ passport.deserializeUser(function(obj, done) {
 });
 
 app.get('/login', passport.authenticate('auth0', {
-    successRedirect: "http://localhost:3000/"
+    successRedirect: "https://h2go-project.herokuapp.com/"
   })
 );
 

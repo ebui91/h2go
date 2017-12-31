@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 module.exports= {
   getProducts: (req, res, next)=> {
     const dbInstance= req.app.get('db');

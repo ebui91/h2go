@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express= require('express');
 const { json }= require('body-parser');
 const cors= require('cors');
@@ -8,7 +9,7 @@ const Auth0Strategy= require('passport-auth0');
 // const connectionString= require('../config.js').massive;
 // const { secret }= require('../config.js').session;
 // const { domain, clientID, clientSecret }= require("../config").auth0;
-require('dotenv').config();
+
 
 //Stripe
 // const { secretKey }= require('../config.js').stripe;
@@ -21,13 +22,14 @@ const configureRoutes = require('./routes');
 
 const controller= require('./controllers/controller');
 
-const port= 3001;
+// BEGIN SERVER
+const port= process.env.PORT || 3001;
 const app= express();
 
 configureServer(app);
 configureRoutes(app);
 
-//Serve public files to server whenever we are done building.
+// SERVE FRONT END
 app.use(express.static(`${__dirname}/../build`));
 
 // massive(connectionString)
@@ -95,7 +97,7 @@ app.get('/login', passport.authenticate('auth0', {
 );
 
 //Endpoints
-app.get('https://h2go-project.herokuapp.com/products', controller.getProducts); //Automatically sorts products by name.
+app.get('/products', controller.getProducts); //Automatically sorts products by name.
 app.get('/products/name', controller.getProducts);
 app.get('/products/price', controller.getProductsByPrice);
 app.get('/products/price-desc', controller.getProductsByPriceDesc);

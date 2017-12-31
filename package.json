@@ -27,10 +27,8 @@
   },
   "scripts": {
     "start": "PORT=3001 react-scripts start",
-    "heroku-postbuild": "npm run build",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "now-start": "node server/index.js"
+    "eject": "react-scripts eject"
   }
 }

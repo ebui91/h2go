@@ -26,8 +26,8 @@
     "sweetalert2": "^7.0.5"
   },
   "scripts": {
-    "start": "node index.js",
-    "heroku-postbuild": "npm install --only=dev && npm install && npm run build",
+    "start": "react-scripts start",
+    "heroku-postbuild": "npm run build",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",

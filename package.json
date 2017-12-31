@@ -27,7 +27,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build",
+    "heroku-postbuild": "cd /Users/ebui91/Projects/h2go && npm install --only=dev && npm install && npm run build",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",

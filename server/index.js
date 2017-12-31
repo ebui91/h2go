@@ -95,7 +95,7 @@ app.get('/login', passport.authenticate('auth0', {
 );
 
 //Endpoints
-app.get('/products', controller.getProducts); //Automatically sorts products by name.
+app.get('https://h2go-project.herokuapp.com/products', controller.getProducts); //Automatically sorts products by name.
 app.get('/products/name', controller.getProducts);
 app.get('/products/price', controller.getProductsByPrice);
 app.get('/products/price-desc', controller.getProductsByPriceDesc);

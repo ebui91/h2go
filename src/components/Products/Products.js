@@ -26,7 +26,7 @@ class Products extends Component{
   }
 
   componentWillMount(){
-    axios.get('/products').then(response=>{
+    axios.get('https://h2go-project.herokuapp.com/products').then(response=>{
       this.setState({ productsList: response.data });
     })
   }

@@ -30,11 +30,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "now-start": "node server/index.js",
-    "deploy": "now --public --dotenv=.env.prod -d"
+    "now-start": "node server/index.js"
   },
-  "now": {
-    "alias": "h2go"
-  },
-  "proxy": "http://localhost:3001"
+  "proxy": "https://h2go-project.herokuapp.com/"
 }

@@ -25,6 +25,11 @@ const controller= require('./controllers/controller');
 // BEGIN SERVER
 const port= process.env.PORT || 3001;
 const app= express();
+app.use((req, res ,next)=> {
+  console.log(req.path);
+  next();
+});
+
 app.use((req, res, next)=> {
   console.log(req.path);
   next();
@@ -142,7 +147,7 @@ app.get('/me', function(req, res) {
 
 const path = require('path')
 app.get('*', (req, res)=>{
-  res.sendFile(path.join(__dirname, '../build/index.html'));
+  res.sendFile(path.join(__dirname, '/../build/index.html'));
 })
 
 app.listen(port, ()=> {

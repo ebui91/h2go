@@ -29,6 +29,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+<<<<<<< HEAD
     "eject": "react-scripts eject",
     "now-start": "node server/index.js",
     "deploy": "now --public --dotenv=.env.prod -d"
@@ -37,4 +38,8 @@
     "alias": "h2go"
   },
   "proxy": "http://localhost:3001"
+=======
+    "eject": "react-scripts eject"
+  }
+>>>>>>> 77b858bf6b3b4c64fe7fc672a4e682f948d1b800
 }

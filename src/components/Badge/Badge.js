@@ -7,28 +7,28 @@ import axios from 'axios';
 class CartBadge extends Component{
   constructor(props){
     super(props);
-    
+
     this.state={
       cartList: []
     }
     this.checkCart= this.checkCart.bind(this);
   }
-  
+
   checkCart(){
     axios.get(`/cart/${this.props.user.id}`).then(response=> {
       this.setState({ cartList: response.data });
-    });    
+    });
   }
-  
+
   componentWillMount(){
     this.checkCart();
   }
-  
+
   render(){
     this.checkCart();
     return(
       <div>
-        { this.state.cartList.length > 0 ? 
+        { this.state.cartList.length > 0 ?
           <Badge
             badgeContent={ this.state.cartList.length }
             primary={ true }

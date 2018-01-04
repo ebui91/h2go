@@ -14,7 +14,7 @@ export default class Search extends Component {
         displayKey: 'my_attribute',
         templates: {
           suggestion: function(suggestion) {
-          return '<div class="name">' + 
+          return '<div class="name">' +
           suggestion._highlightResult.name.value + '</div>';
           }
         }
@@ -23,18 +23,15 @@ export default class Search extends Component {
       console.log('Selected Item: ', suggestion, dataset);
       console.log('Desc: ', suggestion);
 
-      window.location.replace(`http://localhost:3000/details/${suggestion.id}`);
+      window.location.replace(`https://h2go-project.herokuapp.com/details/${suggestion.id}`);
 
     });
   }
-  
+
   render(){
     return(
       <input id='search-input' type='text' onChange={ (e)=> this.props.handleSearch(e.target.value) }></input>
     )
   }
-  
+
 }
-
-
-

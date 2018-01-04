@@ -97,7 +97,7 @@ passport.deserializeUser(function(obj, done) {
 });
 
 app.get('/login', passport.authenticate('auth0', {
-    successRedirect: "https://h2go-project.herokuapp.com/"
+    successRedirect: "/"
   })
 );
 

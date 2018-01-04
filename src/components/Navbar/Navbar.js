@@ -14,7 +14,7 @@ class Navbar extends Component{
   }
 
   handleLogin(){
-    window.location.href= "/login";
+    window.location.href= "http://162.243.130.224:3001/login";
   }
 
   componentDidMount(){
@@ -53,7 +53,7 @@ class Navbar extends Component{
             <Badge />
           </div>
 
-          <RaisedButton className='log-btn' label={ this.props.logged } onClick={ ()=> this.handleLogin() }/>
+          <RaisedButton className='log-btn' label={ this.props.logged } href="http://162.243.130.224:3001/login" />
 
           <img src={ require('../../images/login-key-icon.png') } className='mobile-btn' alt='login-logo'/>
         </div>

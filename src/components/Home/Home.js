@@ -37,7 +37,6 @@ class Home extends Component{
         <div className="pimg3">
           <div className="ptext">
             <span className="border-trans light-text">
-              I SELL WATER
             </span>
           </div>
         </div>

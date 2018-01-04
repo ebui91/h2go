@@ -5,15 +5,15 @@ const session= require('express-session');
 const massive= require('massive');
 const passport= require('passport');
 const Auth0Strategy= require('passport-auth0');
-const connectionString= require('../config.js').massive;
-const { secret }= require('../config.js').session;
-const { domain, clientID, clientSecret }= require("../config").auth0;
-// require('dotenv').config();
+// const connectionString= require('../config.js').massive;
+// const { secret }= require('../config.js').session;
+// const { domain, clientID, clientSecret }= require("../config").auth0;
+require('dotenv').config();
 
 //Stripe
-const { secretKey }= require('../config.js').stripe;
-// const stripe= require('stripe')(process.env.STRIPE_SECRET);
-const stripe= require('stripe')(secretKey);
+// const { secretKey }= require('../config.js').stripe;
+const stripe= require('stripe')(process.env.STRIPE_SECRET);
+// const stripe= require('stripe')(secretKey);
 const SERVER_CONFIGS = require('./constants/server');
 
 const configureServer = require('./server');
@@ -21,8 +21,8 @@ const configureRoutes = require('./routes');
 
 const controller= require('./controllers/controller');
 
-// const port= process.env.PORT || 3001;
-const port= 3001;
+const port= process.env.PORT || 3001;
+// const port= 3001;
 const app= express();
 app.use((req, res, next)=> {
   console.log(req.path);
@@ -36,20 +36,20 @@ configureRoutes(app);
 app.use(express.static(`${__dirname}/../build`));
 
 //connectionString = development database
-massive(connectionString)
-.then(dbInstance=> app.set('db', dbInstance))
-.catch(console.log);
-// massive(process.env.DATABASE_URL || DATABASE_URL)
+// massive(connectionString)
 // .then(dbInstance=> app.set('db', dbInstance))
 // .catch(console.log);
+massive(process.env.DATABASE_URL || DATABASE_URL)
+.then(dbInstance=> app.set('db', dbInstance))
+.catch(console.log);
 
 
 //Middlewares
 app.use(json());
 app.use(cors());
 app.use(session({
-  // secret: process.env.SESSION_SECRET,
-  secret: secret,
+  secret: process.env.SESSION_SECRET,
+  // secret: secret,
   resave: false,
   saveUninitialized: false
   })
@@ -63,12 +63,12 @@ app.use(passport.session());
 passport.use(
   new Auth0Strategy(
     {
-      // domain: process.env.DOMAIN,
-      // clientID: process.env.ID,
-      // clientSecret: process.env.SECRET,
-      domain,
-      clientID,
-      clientSecret,
+      domain: process.env.DOMAIN,
+      clientID: process.env.ID,
+      clientSecret: process.env.SECRET,
+      // domain,
+      // clientID,
+      // clientSecret,
       callbackURL: '/login'
     },
     function(accessToken, refreshToken, extraParams, profile, done) {

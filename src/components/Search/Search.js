@@ -23,7 +23,7 @@ export default class Search extends Component {
       console.log('Selected Item: ', suggestion, dataset);
       console.log('Desc: ', suggestion);
 
-      window.location.replace(`https://boiling-bastion-21930.herokuapp.com/${suggestion.id}`);
+      window.location.replace(`https://boiling-bastion-21930.herokuapp.com/details/${suggestion.id}`);
 
     });
   }

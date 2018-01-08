@@ -24,9 +24,6 @@ Simply run npm -i in the project's root directory to install all dependencies.
 npm i --save
 ```
 
-## Navigating the Website
-![Alt text](/Users/ebui91/Desktop/Screen Shot 2018-01-08 at 11.46.01 AM.png?raw=true "Title")
-
 ## Built With
 
 React/Redux, postgreSQL, Express/Node.

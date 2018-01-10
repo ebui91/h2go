@@ -67,9 +67,6 @@ app.use(passport.session());
 passport.use(
   new Auth0Strategy(
     {
-      // domain,
-      // clientID,
-      // clientSecret,
       domain: process.env.DOMAIN,
       clientID: process.env.ID,
       clientSecret: process.env.SECRET,

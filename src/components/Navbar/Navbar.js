@@ -53,7 +53,7 @@ class Navbar extends Component{
             <Badge />
           </div>
 
-          <RaisedButton className='log-btn' label={ this.props.logged } href="http://162.243.130.224:3001/login" />
+          <RaisedButton className='log-btn' label={ this.props.logged } href="http://162.243.130.224:3001/login" onClick={()=> this.handleLogin() } />
 
           <img src={ require('../../images/login-key-icon.png') } className='mobile-btn' alt='login-logo'/>
         </div>

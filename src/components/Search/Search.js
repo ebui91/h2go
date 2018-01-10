@@ -23,7 +23,7 @@ export default class Search extends Component {
       console.log('Selected Item: ', suggestion, dataset);
       console.log('Desc: ', suggestion);
 
-      window.location.replace(`https://h2go-project.herokuapp.com/details/${suggestion.id}`);
+      window.location.replace(`http://162.243.130.224:3001/details/${suggestion.id}`);
 
     });
   }

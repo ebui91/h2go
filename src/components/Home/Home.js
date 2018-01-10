@@ -31,7 +31,7 @@ class Home extends Component{
 
         <section className="section section-light">
           <h2>FLUID</h2>
-          <p className='japanese'> 否ろやぽー談5第づひ兄対コサ済覧ざぶ題想ラ世関イヲウ創今マキツオ頭主ょむげび隣教ケス死木に適松ょしぽ給7暑モハウ越公者体女ぐ。治レ武円レる動求質カイテ量58火リヌヤユ江下対園めらラひ市65真ロニ得指マワ周幼治ぶ検神行偵叫垂びづくや。間ほっ北野フ信因ふわまご築政さたじい基搬だれゅ朝82提そへー優朝てッ相禽断スヒウ代変交ぴょど氏択くぼこ車少シナコ長入ツイ早下中症チオラ脱占祉よとぽ。 </p>
+          <p className='japanese'> Water is deceptive. For while it pours freely from the heavens and seems to flow endlessly in rivers, it’s a finite resource; we only have what we have. And although there is about 332,500,000 cubic miles of it on earth – only one-hundredth of one percent of the world's water is readily available for human use. We really need to learn how to show it some respect.  </p>
         </section>
 
         <div className="pimg3">
@@ -42,8 +42,8 @@ class Home extends Component{
         </div>
 
         <section className="section section-light">
-          <h2> AGUA </h2>
-          <p className='japanese'>音ウ堅害陣トや逆除クスメ額臓棄ネラナリ百全注16富り取円ラ間軟クげへさ成17雪賀アヲルコ半悪テ玲8真モエヱナ焼委替とドおラ。間トヌ金絡ょ信京員ちフて問日ッ菱経なル調雪でド産口えし崎4欺ハ図因修チメユ真編シ整8新ニナラ変午ッりをら大点を焼供ゃぎぽめ携如幡揃擁せご。</p>
+          <h2> NATURAL  </h2>
+          <p className='japanese'> Drinking Water Helps Maintain the Balance of Body Fluids. Your body is composed of about 60% water. The functions of these bodily fluids include digestion, absorption, circulation, creation of saliva, transportation of nutrients, and maintenance of body temperature.  </p>
         </section>
 
         <div className="pimg3"></div>
